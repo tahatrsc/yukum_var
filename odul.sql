@@ -1,14 +1,8 @@
-
-create table odul(
-
-odul_id int primary key,
-sofor_id int,
-ac�klama varchar (255) not null,
-odul_puan� int,
-verildigi_zaman datetime not null,
-foreign key (sofor_id) references kullanicilar(kullanici_id) on delete cascade -- �of�r ile ili�kilendirme
-
-
-
-
+CREATE TABLE odul (
+    odul_id INT PRIMARY KEY,  -- Benzersiz ödül ID'si
+    sofor_id INT,                             -- Ödül alan şoför ID'si
+    acıklama VARCHAR(255) NOT NULL,         -- Ödül açıklaması
+    puan INT NOT NULL,                       -- Ödül puanı
+    tarih DATETIME2 DEFAULT SYSDATETIME(),  -- Ödülün verildiği zaman
+    FOREIGN KEY (sofor_id) REFERENCES kullanicilar(kullanici_id) ON DELETE CASCADE  -- Şoför ile ilişkilendirme
 );
